@@ -67,7 +67,7 @@ const LIST_YOUTUBE = [
 ];
 
 Class Requests {
-	static function Curl($url, $head=0, $post=0, $data_post=0, $cookie=0, $proxy=0, $skip=0){while(true){$ch = curl_init();curl_setopt($ch, CURLOPT_URL, $url);curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);curl_setopt($ch, CURLOPT_COOKIE,TRUE);if($cookie){curl_setopt($ch, CURLOPT_COOKIEFILE,$cookie);curl_setopt($ch, CURLOPT_COOKIEJAR,$cookie);}if($post) {curl_setopt($ch, CURLOPT_POST, true);}if($data_post) {curl_setopt($ch, CURLOPT_POSTFIELDS, $data_post);}if($head) {curl_setopt($ch, CURLOPT_HTTPHEADER, $head);}if($proxy){curl_setopt($ch, CURLOPT_HTTPPROXYTUNNEL, true);curl_setopt($ch, CURLOPT_PROXY, $proxy);}curl_setopt($ch, CURLOPT_HEADER, true);$r = curl_exec($ch);if($skip){return;}$c = curl_getinfo($ch);if(!$c) return "Curl Error : ".curl_error($ch); else{$head = substr($r, 0, curl_getinfo($ch, CURLINFO_HEADER_SIZE));$body = substr($r, curl_getinfo($ch, CURLINFO_HEADER_SIZE));curl_close($ch);if(!$body){print "Check your Connection!";sleep(2);print "\r                         \r";continue;}return array($head,$body);}}}
+	static function Curl($url, $head=0, $post=0, $data_post=0, $cookie=0, $proxy=0, $skip=0){while(true){$ch = curl_init();curl_setopt($ch, CURLOPT_URL, $url);curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);curl_setopt($ch, CURLOPT_COOKIE,TRUE);if($cookie){curl_setopt($ch, CURLOPT_COOKIEFILE,$cookie);curl_setopt($ch, CURLOPT_COOKIEJAR,$cookie);}if($post) {curl_setopt($ch, CURLOPT_POST, true);}if($data_post) {curl_setopt($ch, CURLOPT_POSTFIELDS, $data_post);}if($head) {curl_setopt($ch, CURLOPT_HTTPHEADER, $head);}if($proxy){curl_setopt($ch, CURLOPT_HTTPPROXYTUNNEL, true);curl_setopt($ch, CURLOPT_PROXY, $proxy);}curl_setopt($ch, CURLOPT_HEADER, true);$r = curl_exec($ch);if($skip){return;}$c = curl_getinfo($ch);if(!$c) return "Curl Error : ".curl_error($ch); else{$head = substr($r, 0, curl_getinfo($ch, CURLINFO_HEADER_SIZE));$body = substr($r, curl_getinfo($ch, CURLINFO_HEADER_SIZE));curl_close($ch);if(!$body){print "Periksa Koneksi Anda!";sleep(2);print "\r                         \r";continue;}return array($head,$body);}}}
 	static function get($url, $head =0){return self::curl($url,$head);}
 	static function post($url, $head=0, $data_post=0){return self::curl($url,$head, 1, $data_post);}
 	static function getXskip($url, $head =0){return self::curl($url,$head,'','','','',1);}
@@ -92,13 +92,14 @@ class Display {
 			print str_pad($api->city.', '.$api->regionName.', '.$api->country, 44, " ", STR_PAD_BOTH).n;
 		}
 		print yh.' '.date("l").'           '.date("d/M/Y").'         '.date("H:i").' '.d."\n";
-		print " ".strtoupper($title." [".$versi."]").n;
-		print o2." •     •┓  ┏━┓┓┏  Author : @tedting\n";
-		print o." ┓┏┓┓┏┏┓┃  ┃┗┛┗┫╋ Youtube: youtube.com/@iewil\n";
-		print y." ┗┗ ┗┻┛┗┗  ┗━┛┗┛┗ Tele   : t.me/MaksaJoin\n\n";
+		print b."██╗   ██╗███████╗███╗   ██╗ ██████╗ ███╗   ███╗ Author : VenchiStore\n";
+		print b."██║   ██║██╔════╝████╗  ██║██╔═══██╗████╗ ████║\n";
+		print b."██║   ██║█████╗  ██╔██╗ ██║██║   ██║██╔████╔██║\n";
+		print m."╚██╗ ██╔╝██╔══╝  ██║╚██╗██║██║   ██║██║╚██╔╝██║\n";
+		print m." ╚████╔╝ ███████╗██║ ╚████║╚██████╔╝██║ ╚═╝ ██║\n";
+		print m."   ╚═══╝  ╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝SCRIPT \033[1;35mOurinfo\n";
 		print p." Special Tanks to \n";
-		print str_pad("@PetapaGenit2, @Zhy_08, @IPeop", 44, " ", STR_PAD_BOTH).n;
-		print str_pad("@itsaoda, @pr4bu_51l1w4n61, @MetalFrogs", 44, " ", STR_PAD_BOTH).n;
+		print str_pad("@fat9ght, @Zhy_08", 44, " ", STR_PAD_BOTH).n;
 		print mp.str_pad("FREE SCRIPT NOT FOR SALE", 44, " ", STR_PAD_BOTH).d.n.n;
 		if($server){
 			$cekServer = Functions::Server(title);
