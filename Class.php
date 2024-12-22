@@ -91,16 +91,20 @@ class Display {
 			date_default_timezone_set($api->timezone);
 			print str_pad($api->city.', '.$api->regionName.', '.$api->country, 44, " ", STR_PAD_BOTH).n;
 		}
-		print yh.' '.date("l").'           '.date("d/M/Y").'         '.date("H:i").' '.d."\n";
-		print b."██╗   ██╗███████╗███╗   ██╗ ██████╗ ███╗   ███╗ Author : VenchiStore\n";
-		print b."██║   ██║██╔════╝████╗  ██║██╔═══██╗████╗ ████║\n";
-		print b."██║   ██║█████╗  ██╔██╗ ██║██║   ██║██╔████╔██║\n";
-		print m."╚██╗ ██╔╝██╔══╝  ██║╚██╗██║██║   ██║██║╚██╔╝██║\n";
-		print m." ╚████╔╝ ███████╗██║ ╚████║╚██████╔╝██║ ╚═╝ ██║\n";
-		print m."   ╚═══╝  ╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝SCRIPT \033[1;35mOurinfo\n";
-		print p." Special Tanks to \n";
-		print str_pad("@fat9ght, @Zhy_08", 44, " ", STR_PAD_BOTH).n;
-		print mp.str_pad("FREE SCRIPT NOT FOR SALE", 44, " ", STR_PAD_BOTH).d.n.n;
+        print mp.str_pad("        FREE SCRIPT NOT FOR SALE", 44, " ", STR_PAD_BOTH).d.n;
+        print b. "####################################################################\n";
+		print m."███████╗ █████╗ ███╗   ███╗██╗   ██╗███████╗██╗     \n";
+		print m."██╔════╝██╔══██╗████╗ ████║██║   ██║██╔════╝██║     \n";
+		print m."███████╗███████║██╔████╔██║██║   ██║█████╗  ██║     \n";
+		print p."╚════██║██╔══██║██║╚██╔╝██║██║   ██║██╔══╝  ██║     \n";
+		print p."███████║██║  ██║██║ ╚═╝ ██║╚██████╔╝███████╗███████╗\033[1;34mScript\033[1;33mOnline\n";
+		print p."╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝ ╚═════╝ ╚══════╝╚══════╝\033[1;31mAuthor : \033[1;35mSamuel\n";
+        print b. "####################################################################\n";
+        print kp.str_pad("SILAHKAN DIBACA TERLEBIH DAHULU", 44, " ", STR_PAD_BOTH).d.n.n; 
+        print k." SCRIPT INI BUKAN BUATAN SAYA 100% SAYA HANYA MENGUBAH SITUSNYA SAJA\n";
+        print k." SUPPORT JUGA SANG PEMBUAT SCRIPTNYA : https://youtube.com/@iewil\n";
+        print mp.str_pad("AMBIL PASSWORD DISINI : https://bit.ly/49P0cuC", 44, " ", STR_PAD_BOTH).d.n.n;
+        print yh.' '.date("l").'           '.date("d/M/Y").'         '.date("H:i").' '.d."\n";
 		if($server){
 			$cekServer = Functions::Server(title);
 			if($cekServer['data']['status'] != "online"){
