@@ -112,14 +112,6 @@ class Display {
 				print Display::Error("Status Script is offline\n");
 				exit;
 			}
-			$update = ($cekServer['data']['version'] == versi)?false:true;
-			if($update > null){
-				print m."---[".p."^".m."]".h." Update sc Detect\n";
-				print m."---[".p."version ".m."] ".p.$cekServer['data']['version'].n;
-				print m."---[".p."download".m."] ".p.$cekServer['data']['link'].n;
-				self::Line();
-				exit;
-			}
 		}
 	}
 	static function ipApi(){
