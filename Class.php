@@ -80,10 +80,10 @@ Class Requests {
 
 class Display {
 	static function Clear(){if( PHP_OS_FAMILY == "Linux" ){system('clear');}else{pclose(popen('cls','w'));}} 
-	static function Menu($no, $title){print h."---[".p."$no".h."] ".k."$title\n";}
-	static function Cetak($label, $msg = "[No Content]"){$len = 9;$lenstr = $len-strlen($label);print h."[".p.$label.h.str_repeat(" ",$lenstr)."]─> ".p.$msg.n;}
+	static function Menu($no, $title){print h."---=>[".p."$no".h."] ".k."$title\n";}
+	static function Cetak($label, $msg = "[No Content]"){$len = 9;$lenstr = $len-strlen($label);print h."[".p.$label.h.str_repeat("",$lenstr)."]─> ".p.$msg.n;}
 	static function Title($activitas){print bp.str_pad(strtoupper($activitas),44, " ", STR_PAD_BOTH).d.n;}
-	static function Line($len = 44){print c.str_repeat('─',$len).n;}
+	static function Line($len = 44){print c.str_repeat('=',$len).n;}
 	static function Ban($title, $versi, $server = 0){
 		$api = self::ipApi();
 		self::Clear();
@@ -100,8 +100,9 @@ class Display {
 		print p."███████║██║  ██║██║ ╚═╝ ██║╚██████╔╝███████╗███████╗\033[1;34mScript\033[1;33mOnline\n";
 		print p."╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝ ╚═════╝ ╚══════╝╚══════╝\033[1;31mAuthor : \033[1;35mSamuel\n";
         print b. "####################################################################\n";
-        print kp.str_pad("SILAHKAN DIBACA TERLEBIH DAHULU", 44, " ", STR_PAD_BOTH).d.n.n; 
-        print k." SCRIPT INI BUKAN BUATAN SAYA 100% SAYA HANYA MENGUBAH SITUSNYA SAJA\n";
+        print mp.str_pad("SILAHKAN DIBACA TERLEBIH DAHULU", 44, " ", STR_PAD_BOTH).d.n.n; 
+        print k." SCRIPT INI BUKAN BUATAN SAYA 100% SAYA HANYA MENGUBAH SITUSNYA\n";
+        print k." DAN MENAMBAHKAN FITUR NYA SAJA\n";
         print k." SUPPORT JUGA SANG PEMBUAT SCRIPTNYA : https://youtube.com/@iewil\n";
         print mp.str_pad("AMBIL PASSWORD DISINI : https://bit.ly/49P0cuC", 44, " ", STR_PAD_BOTH).d.n.n;
         print yh.' '.date("l").'           '.date("d/M/Y").'         '.date("H:i").' '.d."\n";
