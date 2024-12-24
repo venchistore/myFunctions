@@ -232,7 +232,7 @@ $d = date("D");
                print x("Password Incorrect!", '     ');
                sleep(2); system("clear"); goto pw;
             }
-         } break
+         } break;
          
          case "Thu":
          $r = file_get_contents('https://pastebin.com/raw/7i21gJE4');
