@@ -49,8 +49,8 @@ const bg_c1 = "\033[48;5;51m";   // Latar belakang cyan terang
 const bg_gr = "\033[48;5;240m";  // Latar belakang abu-abu gelap
 
 const LIST_YOUTUBE = [
-	"https://youtu.be/Va6rmuxMW-Y",
-	"https://youtu.be/wfczg8pS9AA"
+	"https://youtube.com/@samuelfct",
+	"https://youtube.com/@samuelfct"
 ];
 
 Class Requests {
