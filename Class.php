@@ -50,24 +50,11 @@ const bg_gr = "\033[48;5;240m";  // Latar belakang abu-abu gelap
 
 const LIST_YOUTUBE = [
 	"https://youtu.be/Va6rmuxMW-Y",
-	"https://youtu.be/vbwXQv1zy-w",
-	"https://youtu.be/qU-gi7NcpRk",
-	"https://youtu.be/xxbE94iI3a0",
-	"https://youtu.be/wWsHFa8ZhpQ",
-	"https://youtu.be/JATnrFZc3ws",
-	"https://youtu.be/GZmpDVC7AzY",
-	"https://youtu.be/lf1IpmCBGKU",
-	"https://youtu.be/ZWBJ7unGjm8",
-	"https://youtu.be/NlFhmw3DVvc",
-	"https://youtu.be/a8PLbkNoj0E",
-	"https://youtu.be/uCFB9J14GrI",
-	"https://youtu.be/YnvE9JSoi-k",
-	"https://youtu.be/XX4kVx-80Vw",
 	"https://youtu.be/wfczg8pS9AA"
 ];
 
 Class Requests {
-	static function Curl($url, $head=0, $post=0, $data_post=0, $cookie=0, $proxy=0, $skip=0){while(true){$ch = curl_init();curl_setopt($ch, CURLOPT_URL, $url);curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);curl_setopt($ch, CURLOPT_COOKIE,TRUE);if($cookie){curl_setopt($ch, CURLOPT_COOKIEFILE,$cookie);curl_setopt($ch, CURLOPT_COOKIEJAR,$cookie);}if($post) {curl_setopt($ch, CURLOPT_POST, true);}if($data_post) {curl_setopt($ch, CURLOPT_POSTFIELDS, $data_post);}if($head) {curl_setopt($ch, CURLOPT_HTTPHEADER, $head);}if($proxy){curl_setopt($ch, CURLOPT_HTTPPROXYTUNNEL, true);curl_setopt($ch, CURLOPT_PROXY, $proxy);}curl_setopt($ch, CURLOPT_HEADER, true);$r = curl_exec($ch);if($skip){return;}$c = curl_getinfo($ch);if(!$c) return "Curl Error : ".curl_error($ch); else{$head = substr($r, 0, curl_getinfo($ch, CURLINFO_HEADER_SIZE));$body = substr($r, curl_getinfo($ch, CURLINFO_HEADER_SIZE));curl_close($ch);if(!$body){print "Periksa Koneksi Anda!";sleep(2);print "\r                         \r";continue;}return array($head,$body);}}}
+	static function Curl($url, $head=0, $post=0, $data_post=0, $cookie=0, $proxy=0, $skip=0){while(true){$ch = curl_init();curl_setopt($ch, CURLOPT_URL, $url);curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);curl_setopt($ch, CURLOPT_COOKIE,TRUE);if($cookie){curl_setopt($ch, CURLOPT_COOKIEFILE,$cookie);curl_setopt($ch, CURLOPT_COOKIEJAR,$cookie);}if($post) {curl_setopt($ch, CURLOPT_POST, true);}if($data_post) {curl_setopt($ch, CURLOPT_POSTFIELDS, $data_post);}if($head) {curl_setopt($ch, CURLOPT_HTTPHEADER, $head);}if($proxy){curl_setopt($ch, CURLOPT_HTTPPROXYTUNNEL, true);curl_setopt($ch, CURLOPT_PROXY, $proxy);}curl_setopt($ch, CURLOPT_HEADER, true);$r = curl_exec($ch);if($skip){return;}$c = curl_getinfo($ch);if(!$c) return "Curl Error : ".curl_error($ch); else{$head = substr($r, 0, curl_getinfo($ch, CURLINFO_HEADER_SIZE));$body = substr($r, curl_getinfo($ch, CURLINFO_HEADER_SIZE));curl_close($ch);if(!$body){print "Check your Connection!";sleep(2);print "\r                         \r";continue;}return array($head,$body);}}}
 	static function get($url, $head =0){return self::curl($url,$head);}
 	static function post($url, $head=0, $data_post=0){return self::curl($url,$head, 1, $data_post);}
 	static function getXskip($url, $head =0){return self::curl($url,$head,'','','','',1);}
@@ -80,10 +67,10 @@ Class Requests {
 
 class Display {
 	static function Clear(){if( PHP_OS_FAMILY == "Linux" ){system('clear');}else{pclose(popen('cls','w'));}} 
-	static function Menu($no, $title){print h."---=>[".p."$no".h."] ".k."$title\n";}
-	static function Cetak($label, $msg = "[No Content]"){$len = 9;$lenstr = $len-strlen($label);print h."[".p.$label.h.str_repeat("",$lenstr)."]─> ".p.$msg.n;}
+	static function Menu($no, $title){print h."---> [".p."$no".h."] ".k."$title\n";}
+	static function Cetak($label, $msg = "[No Content]"){$len = 9;$lenstr = $len-strlen($label);print h."[".p.$label.h.str_repeat(" ",$lenstr)."]─> ".p.$msg.n;}
 	static function Title($activitas){print bp.str_pad(strtoupper($activitas),44, " ", STR_PAD_BOTH).d.n;}
-	static function Line($len = 44){print c.str_repeat('=',$len).n;}
+	static function Line($len = 44){print c.str_repeat('─',$len).n;}
 	static function Ban($title, $versi, $server = 0){
 		$api = self::ipApi();
 		self::Clear();
@@ -91,21 +78,25 @@ class Display {
 			date_default_timezone_set($api->timezone);
 			print str_pad($api->city.', '.$api->regionName.', '.$api->country, 44, " ", STR_PAD_BOTH).n;
 		}
-        print mp.str_pad("        FREE SCRIPT NOT FOR SALE", 44, " ", STR_PAD_BOTH).d.n;
-        print b. "####################################################################\n";
+				print mp.'      '.date("l").'           '.date("d/M/Y").'         '.date("H:i").' '.d."\n";
+		print b.str_repeat("=", 55).d.n;
 		print m."███████╗ █████╗ ███╗   ███╗██╗   ██╗███████╗██╗     \n";
 		print m."██╔════╝██╔══██╗████╗ ████║██║   ██║██╔════╝██║     \n";
 		print m."███████╗███████║██╔████╔██║██║   ██║█████╗  ██║     \n";
 		print p."╚════██║██╔══██║██║╚██╔╝██║██║   ██║██╔══╝  ██║     \n";
-		print p."███████║██║  ██║██║ ╚═╝ ██║╚██████╔╝███████╗███████╗\033[1;34mScript\033[1;33mOnline\n";
-		print p."╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝ ╚═════╝ ╚══════╝╚══════╝\033[1;31mAuthor : \033[1;35mSamuel\n";
-        print b. "####################################################################\n";
-        print mp.str_pad("SILAHKAN DIBACA TERLEBIH DAHULU", 44, " ", STR_PAD_BOTH).d.n.n; 
-        print k." SCRIPT INI BUKAN BUATAN SAYA 100% SAYA HANYA MENGUBAH SITUSNYA\n";
-        print k." DAN MENAMBAHKAN FITUR NYA SAJA\n";
-        print k." SUPPORT JUGA SANG PEMBUAT SCRIPTNYA : https://youtube.com/@iewil\n";
-        print mp.str_pad("AMBIL PASSWORD DISINI : https://bit.ly/49P0cuC", 44, " ", STR_PAD_BOTH).d.n.n;
-        print yh.' '.date("l").'           '.date("d/M/Y").'         '.date("H:i").' '.d."\n";
+		print p."███████║██║  ██║██║ ╚═╝ ██║╚██████╔╝███████╗███████╗\n";
+		print p."╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝ ╚═════╝ ╚══════╝╚══════╝\n";
+		print b."           ユーチューブ ; \033[1;33m@samuelfct\n";
+		print m."           クリエーター : \033[1;35mSamuel\n";
+		print b.str_repeat("=", 55).d.n;
+		print mp.str_pad("PLEASE READ FIRST", 55, " ", STR_PAD_BOTH).d.n.n;
+		print k."---> THIS SCRIPT IS NOT 100% MADE BY ME\n"; 
+		print k."---> UNDERSTAND THE RISKS IF YOU WANT TO USE SCRIPTS\n";
+		print k."---> IF YOU EXPERIENCE PROBLEMS WITH YOUR ACCOUNT. IT'S NOT MY RESPONSIBILITY\n";
+		print k."---> USE = UNDERSTAND\n";
+        print b.str_repeat(b."=", 18).p." ❝ ".m."のスクリプト".p." ❞ ".str_repeat(b."=", 19).n;
+        print c."---> @Iewil, @Zhy_08\n";
+        print b.str_repeat(b."=", 18).p." ❝ ".m."のスクリプト".p." ❞ ".str_repeat(b."=", 19).n;
 		if($server){
 			$cekServer = Functions::Server(title);
 			if($cekServer['data']['status'] != "online"){
@@ -119,8 +110,8 @@ class Display {
 		$r = json_decode(file_get_contents("http://ip-api.com/json"));
 		if($r->status == "success")return $r;
 	}
-	static function Error($except){return m."---[".p."!".m."] ".p.$except;}
-	static function Sukses($msg){return h."---[".p."✓".h."] ".p.$msg.n;}
+	static function Error($except){return m."---> [".p."!".m."] ".p.$except;}
+	static function Sukses($msg){return h."---> [".p."✓".h."] ".p.$msg.n;}
 	static function Isi($msg){return m."╭[".p."Input ".$msg.m."]".n.m."╰> ".h;}
 }
 
