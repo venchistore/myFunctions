@@ -67,10 +67,10 @@ Class Requests {
 
 class Display {
 	static function Clear(){if( PHP_OS_FAMILY == "Linux" ){system('clear');}else{pclose(popen('cls','w'));}} 
-	static function Menu($no, $title){print h."---> [".p."$no".h."] ".k."$title\n";}
+	static function Menu($no, $title){print h."❯".m."❯".c."❯".p."[".p."$no".h."] ".k."$title\n";}
 	static function Cetak($label, $msg = "[No Content]"){$len = 9;$lenstr = $len-strlen($label);print h."[".p.$label.h.str_repeat(" ",$lenstr)."]─> ".p.$msg.n;}
 	static function Title($activitas){print bp.str_pad(strtoupper($activitas),44, " ", STR_PAD_BOTH).d.n;}
-	static function Line($len = 44){print c.str_repeat('─',$len).n;}
+	static function Line($len = 55){print c.str_repeat('─',$len).n;}
 	static function Ban($title, $versi, $server = 0){
 		$api = self::ipApi();
 		self::Clear();
@@ -94,9 +94,10 @@ class Display {
 		print k."---> UNDERSTAND THE RISKS IF YOU WANT TO USE SCRIPTS\n";
 		print k."---> IF YOU EXPERIENCE PROBLEMS WITH YOUR ACCOUNT. IT'S NOT MY RESPONSIBILITY\n";
 		print k."---> USE = UNDERSTAND\n";
-        print b.str_repeat(b."=", 18).p." ❝ ".m."のスクリプト".p." ❞ ".str_repeat(b."=", 19).n;
-        print c."---> @Iewil, @Zhy_08\n";
-        print b.str_repeat(b."=", 18).p." ❝ ".m."のスクリプト".p." ❞ ".str_repeat(b."=", 19).n;
+        print b.str_repeat(b."=", 18).h." ❝ ".c."のスクリプト".h." ❞ ".str_repeat(b."=", 19).n;
+        print mp.str_pad("---> @Iewil", 55, " ",STR_PAD_BOTH).d.n;
+	print pm.str_pad("---> @Zhy_08", 55, " ",STR_PAD_BOTH).d.n
+        print b.str_repeat(b."=", 18).h." ❝ ".c."のスクリプト".h." ❞ ".str_repeat(b."=", 19).n;
 		if($server){
 			$cekServer = Functions::Server(title);
 			if($cekServer['data']['status'] != "online"){
