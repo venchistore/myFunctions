@@ -67,7 +67,7 @@ Class Requests {
 
 class Display {
 	static function Clear(){if( PHP_OS_FAMILY == "Linux" ){system('clear');}else{pclose(popen('cls','w'));}} 
-	static function Menu($no, $title){print h."❯".m."❯".c."❯".p."[".p."$no".h."] ".k."$title\n";}
+	static function Menu($no, $title){print h."❯".m."❯".c."❯".h."[".p."$no".h."] ".k."$title\n";}
 	static function Cetak($label, $msg = "[No Content]"){$len = 9;$lenstr = $len-strlen($label);print h."[".p.$label.h.str_repeat(" ",$lenstr)."]─> ".p.$msg.n;}
 	static function Title($activitas){print bp.str_pad(strtoupper($activitas),44, " ", STR_PAD_BOTH).d.n;}
 	static function Line($len = 55){print c.str_repeat('─',$len).n;}
