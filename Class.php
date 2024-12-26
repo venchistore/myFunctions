@@ -76,7 +76,7 @@ class Display {
 		self::Clear();
 		if($api){
 			date_default_timezone_set($api->timezone);
-			print str_pad($api->city.', '.$api->regionName.', '.$api->country, 44, " ", STR_PAD_BOTH).n;
+			print bg_c1.str_pad($api->city.', '.$api->regionName.', '.$api->country, 44, " ", STR_PAD_BOTH).n;
 		}
 				print mp.'      '.date("l").'           '.date("d/M/Y").'         '.date("H:i").' '.d."\n";
 		print b.str_repeat("=", 55).d.n;
